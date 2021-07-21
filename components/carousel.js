@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/image'
 import styles from './carousel.module.css'
 
 const Arrow = ({ handleClick, glyph }) => (
@@ -34,17 +35,37 @@ const Carousel = ({ images }) => {
     <div className={styles.gallery}>
       <Arrow handleClick={previousSlide} glyph="&#9664;" />
       <div className={styles.slide} onClick={expandImage}>
-        <img src={images[currentImageIndex].src.portrait} alt="" />
+        <Image
+          className={styles.image}
+          priority
+          src={images[currentImageIndex].src.portrait}
+          alt=""
+          placeholder="blur"
+          width={300}
+          height={500}
+        />
       </div>
       <Arrow handleClick={nextSlide} glyph="&#9654;" />
-      {displayLightbox
-        ? <div className={styles.lightbox}>
-            <div className={styles.lightcontainer}>
-              <img src={images[currentImageIndex].src.portrait} alt="" />
-              <div className={styles.close} onClick={closeImage}>&#215; Close</div>
+      {displayLightbox ? (
+        <div className={styles.lightbox}>
+          <div className={styles.lightcontainer}>
+            <Image
+              className={styles.image}
+              priority
+              src={images[currentImageIndex].src.portrait}
+              alt=""
+              placeholder="blur"
+              width={300}
+              height={500}
+            />
+            <div className={styles.close} onClick={closeImage}>
+              &#215; Close
             </div>
           </div>
-        : ''}
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
