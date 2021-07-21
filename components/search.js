@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import Carousel from './carousel'
 import auth from '../credentials/index.json'
 import styles from './search.module.css'
@@ -29,6 +29,7 @@ const Search = () => {
         .then(res => {
           setResults(res.photos)
         })
+        .catch(error => console.log(error, ' <= an error occurred when fetching images'))
     } else {
       setResults([])
     }
@@ -46,7 +47,7 @@ const Search = () => {
         type='text'
         value={query}
       />
-      {results.length > 0 && (
+      {results && results.length > 0 && (
         <Carousel images={results} />
       )}
     </div>

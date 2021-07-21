@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "date-fns": "^2.11.1",
@@ -18,7 +21,21 @@
     "remark-html": "^11.0.1"
   },
   "devDependencies": {
-    "husky": "^4.2.5"
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.0.6",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.6",
+    "jsdom": "^16.6.0",
+    "jsdom-global": "^3.0.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "husky": {
     "hooks": {

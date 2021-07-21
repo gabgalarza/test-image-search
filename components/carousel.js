@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from './carousel.module.css'
 
@@ -33,7 +33,7 @@ const Carousel = ({ images }) => {
   
   return (
     <div className={styles.gallery}>
-      <Arrow handleClick={previousSlide} glyph="&#9664;" />
+      <Arrow handleClick={previousSlide} glyph="&#9664;" direction="left" />
       <div className={styles.slide} onClick={expandImage}>
         <Image
           className={styles.image}
@@ -45,7 +45,7 @@ const Carousel = ({ images }) => {
           height={500}
         />
       </div>
-      <Arrow handleClick={nextSlide} glyph="&#9654;" />
+      <Arrow handleClick={nextSlide} glyph="&#9654;" direction="right"/>
       {displayLightbox ? (
         <div className={styles.lightbox}>
           <div className={styles.lightcontainer}>
