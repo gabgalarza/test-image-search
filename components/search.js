@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
-import Carousel from './carousel';
-import auth from '../credentials/index.json';
+import Carousel from './carousel'
+import auth from '../credentials/index.json'
 import styles from './search.module.css'
 
 const Search = () => {
