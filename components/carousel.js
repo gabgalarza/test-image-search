@@ -35,15 +35,17 @@ const Carousel = ({ images }) => {
     <div className={styles.gallery}>
       <Arrow handleClick={previousSlide} glyph="&#9664;" direction="left" />
       <div className={styles.slide} onClick={expandImage}>
-        <Image
-          className={styles.image}
-          priority
-          src={images[currentImageIndex].src.portrait}
-          alt=""
-          placeholder="blur"
-          width={300}
-          height={500}
-        />
+        {images[currentImageIndex]
+          && <Image
+              className={styles.image}
+              priority
+              src={images[currentImageIndex].src.portrait}
+              alt=""
+              placeholder="blur"
+              width={300}
+              height={500}
+            />
+        }
       </div>
       <Arrow handleClick={nextSlide} glyph="&#9654;" direction="right"/>
       {displayLightbox ? (
