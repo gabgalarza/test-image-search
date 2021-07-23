@@ -36,10 +36,5 @@
   },
   "jest": {
     "testEnvironment": "jsdom"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn cache-posts && git add cache/data.js"
-    }
   }
 }
